@@ -18,7 +18,11 @@ const MenuDrawer = () => {
       screenOptions={{ headerShown: false }}
       drawerContent={(props) => <DrawerContent {...props} />}
     >
-      <Drawer.Screen name="HomeStack" component={HomeStack} />
+      <Drawer.Screen
+        name="HomeStack"
+        component={HomeStack}
+        initialParams={{ url: "URL TODAY" }}
+      />
       <Drawer.Screen name="Search" component={Search} />
       <Drawer.Screen name="Themes" component={Themes} />
       <Drawer.Screen name="About" component={About} />

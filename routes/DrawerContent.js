@@ -19,7 +19,9 @@ export function DrawerContent(props) {
             <AntDesign name="home" size={iconSize} color={iconColor} />
           )}
           label="Today"
-          onPress={() => props.navigation.navigate("HomeStack")}
+          onPress={() =>
+            props.navigation.navigate("HomeStack", { url: "URL TODAY" })
+          }
         />
         <DrawerItem
           icon={() => (
@@ -28,7 +30,6 @@ export function DrawerContent(props) {
           label="Search"
           onPress={() => {
             props.navigation.navigate("Search");
-            ToastAndroid.show("TO DO: Search ", ToastAndroid.SHORT);
           }}
         />
         <DrawerItem
