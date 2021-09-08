@@ -28,13 +28,13 @@ const Navbar = ({ navigation }) => {
       <View style={tw`flex-1 flex-row justify-end`}>
         <TouchableOpacity
           style={tw`px-2`}
-          onPress={() => ToastAndroid.show("TO DO: Share ", ToastAndroid.SHORT)}
+          onPress={() => ToastAndroid.show("TO DO: Love ", ToastAndroid.SHORT)}
         >
           <AntDesign name="hearto" size={24} color="red" />
         </TouchableOpacity>
         <TouchableOpacity
           style={tw`px-2`}
-          onPress={() => ToastAndroid.show("TO DO: Love ", ToastAndroid.SHORT)}
+          onPress={() => ToastAndroid.show("TO DO: Share ", ToastAndroid.SHORT)}
         >
           <AntDesign name="sharealt" size={24} color="black" />
         </TouchableOpacity>

@@ -9,9 +9,9 @@ const BtnBack = ({ navigation }) => {
     <View style={tw`items-center m-4`}>
       <TouchableOpacity
         style={tw`absolute z-10 top-0 left-0 p-2 bg-white rounded-xl`}
-        onPress={() => navigation.goBack()}
+        onPress={() => navigation.toggleDrawer()}
       >
-        <AntDesign name="back" size={24} color="black" />
+        <AntDesign name="menu-fold" size={24} color="black" />
       </TouchableOpacity>
     </View>
   );
