@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, View, Text } from "react-native";
+import { Button, View, Text, Alert } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 import Navbar from "../../components/Navbar";
@@ -7,7 +7,13 @@ import { useArticle } from "../../context/ArticleState";
 
 const TrueFalse = ({ navigation }) => {
   const [articleState, articleDispatch] = useArticle();
-  const { article } = articleState;
+  const { article, error, errorMessage } = articleState;
+
+  if (error) {
+    Alert.alert("Ops!", `${errorMessage}\nTry Again!`, [
+      { text: "Okay", style: "cancel", onPress: () => {} },
+    ]);
+  }
 
   return (
     <View style={tw`bg-red-500 h-full`}>
@@ -17,7 +23,7 @@ const TrueFalse = ({ navigation }) => {
         title="Answer"
         onPress={() => navigation.navigate("CheckAnswer")}
       />
-      <Navbar navigation={navigation} />
+      {/* <Navbar navigation={navigation} /> */}
     </View>
   );
 };

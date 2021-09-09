@@ -17,7 +17,7 @@ export const ArticleState = ({ children }) => {
     article: null,
     loading: false,
     error: false,
-    message: false,
+    errorMessage: "",
   };
 
   const [articleState, dispatch] = useReducer(ArticleReducer, initialState);

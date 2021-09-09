@@ -8,7 +8,7 @@ const Article = ({ navigation }) => {
   return (
     <View style={tw`bg-blue-500 h-full`}>
       <Text style={tw`text-center p-8`}>Article Page</Text>
-      <Navbar navigation={navigation} />
+      {/* <Navbar navigation={navigation} /> */}
     </View>
   );
 };
