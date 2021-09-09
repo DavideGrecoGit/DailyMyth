@@ -1,9 +1,8 @@
 import React from "react";
-import { View, Text } from "react-native";
-
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { DrawerContent } from "./DrawerContent";
+import { GET_LATEST_ARTICLE } from "../context/ArticleReducer";
 
 import HomeStack from "./HomeStack";
 import Settings from "../screens/drawer/Settings";
@@ -21,7 +20,7 @@ const MenuDrawer = () => {
       <Drawer.Screen
         name="HomeStack"
         component={HomeStack}
-        initialParams={{ url: "URL TODAY" }}
+        initialParams={{ action: GET_LATEST_ARTICLE }}
       />
       <Drawer.Screen name="Search" component={Search} />
       <Drawer.Screen name="Themes" component={Themes} />

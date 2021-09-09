@@ -7,6 +7,8 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
+import { GET_LATEST_ARTICLE } from "../context/ArticleReducer";
+
 export function DrawerContent(props) {
   const iconSize = 24;
   const iconColor = "black";
@@ -20,7 +22,9 @@ export function DrawerContent(props) {
           )}
           label="Today"
           onPress={() =>
-            props.navigation.navigate("HomeStack", { url: "URL TODAY" })
+            props.navigation.navigate("HomeStack", {
+              action: GET_LATEST_ARTICLE,
+            })
           }
         />
         <DrawerItem

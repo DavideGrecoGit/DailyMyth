@@ -4,6 +4,8 @@ import tw from "tailwind-react-native-classnames";
 import { AntDesign } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
+import { GET_ARTICLE } from "../context/ArticleReducer";
+
 const Navbar = ({ navigation }) => {
   const iconSize = 24;
 
@@ -27,7 +29,7 @@ const Navbar = ({ navigation }) => {
                 {
                   name: "HomeStack",
                   params: {
-                    url: "URL SHUFFLE",
+                    action: GET_ARTICLE,
                   },
                 },
               ],
