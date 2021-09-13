@@ -6,14 +6,19 @@ import TrueFalse from "../screens/stack/TrueFalse";
 import CheckAnswer from "../screens/stack/CheckAnswer";
 import Article from "../screens/stack/Article";
 
-import { useArticle } from "../context/ArticleState";
+import { useArticle } from "../context/article/ArticleProvider";
 import {
   getLatestArticle,
   getRandomArticle,
   setLoading,
-} from "../context/ArticleAction";
-import { GET_ARTICLE, GET_LATEST_ARTICLE } from "../context/ArticleReducer";
+} from "../context/article/ArticleAction";
+import {
+  GET_ARTICLE,
+  GET_LATEST_ARTICLE,
+} from "../context/article/ArticleReducer";
 import Navbar from "../components/Navbar";
+
+const Stack = createStackNavigator();
 
 const HomeStack = ({ navigation, route }) => {
   const action = route.params.action;
@@ -57,7 +62,6 @@ const HomeStack = ({ navigation, route }) => {
     );
   }
 
-  const Stack = createStackNavigator();
   return (
     <>
       <Stack.Navigator

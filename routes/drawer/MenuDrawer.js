@@ -2,16 +2,17 @@ import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 import { DrawerContent } from "./DrawerContent";
-import { GET_LATEST_ARTICLE } from "../context/ArticleReducer";
+import { GET_LATEST_ARTICLE } from "../../context/article/ArticleReducer";
 
-import HomeStack from "./HomeStack";
-import Settings from "../screens/drawer/Settings";
-import Themes from "../screens/drawer/Themes";
-import About from "../screens/drawer/About";
-import Search from "../screens/drawer/Search";
+import HomeStack from "../HomeStack";
+import Settings from "../../screens/drawer/Settings";
+import Themes from "../../screens/drawer/Themes";
+import About from "../../screens/drawer/About";
+import Search from "../../screens/drawer/Search";
+
+const Drawer = createDrawerNavigator();
 
 const MenuDrawer = () => {
-  const Drawer = createDrawerNavigator();
   return (
     <Drawer.Navigator
       screenOptions={{ headerShown: false }}

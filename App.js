@@ -1,14 +1,13 @@
 import React from "react";
 import { SafeAreaView, Platform, StatusBar } from "react-native";
-import tw from "tailwind-react-native-classnames";
 import { NavigationContainer } from "@react-navigation/native";
 
-import MenuDrawer from "./routes/MenuDrawer";
-import { ArticleState } from "./context/ArticleState";
+import MenuDrawer from "./routes/drawer/MenuDrawer";
+import { ArticleProvider } from "./context/article/ArticleProvider";
 
 const App = () => {
   return (
-    <ArticleState>
+    <ArticleProvider>
       <NavigationContainer>
         <SafeAreaView
           style={{
@@ -19,7 +18,7 @@ const App = () => {
           <MenuDrawer />
         </SafeAreaView>
       </NavigationContainer>
-    </ArticleState>
+    </ArticleProvider>
   );
 };
 

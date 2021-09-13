@@ -48,15 +48,15 @@ export const getRandomArticle = async (dispatch) => {
 
   //Dummy Api call
   await axios
-    .get(`https://mocki.iov1/677facb2-20e2-4e7d-9af7-0cb00210cf33`)
+    .get(`https://mocki.io/v1/43902a53-64ee-453f-ba34-c33a77e8e703`)
     .then((res) => {
       const result = res.data;
 
-      //console.log(result);
+      console.log(result);
 
       dispatch({
         type: GET_ARTICLE,
-        payload: "RANDOM article",
+        payload: result,
       });
 
       dispatch({
@@ -75,48 +75,42 @@ export const getRandomArticle = async (dispatch) => {
 export const getLatestArticle = async (dispatch, latestArticle) => {
   setLoading(dispatch, true);
 
+  let article = latestArticle;
+
   if (latestArticle === null) {
     //Dummy Api call
     await axios
-      .get(`https://mocki.io/v1/677facb2-20e2-4e7d-9af7-0cb00210cf33`)
+      .get(`https://mocki.io/v1/1594d4ec-ad3a-4c55-b7b0-675f2084687f`)
       .then((res) => {
         const result = res.data;
 
         //console.log(result);
 
-        dispatch({
-          type: GET_LATEST_ARTICLE,
-          payload: "LATEST article",
-        });
-        dispatch({
-          type: GET_ARTICLE,
-          payload: "LATEST article",
-        });
+        article = result;
 
         dispatch({
-          type: SET_ERROR,
-          payload: {
-            error: false,
-            errorMessage: "",
-          },
+          type: GET_LATEST_ARTICLE,
+          payload: article,
         });
       })
       .catch(function (error) {
         handleError(error, dispatch);
+        return;
       });
   } else {
-    dispatch({
-      type: GET_ARTICLE,
-      payload: latestArticle,
-    });
-
-    dispatch({
-      type: SET_ERROR,
-      payload: {
-        error: false,
-        errorMessage: "",
-      },
-    });
     await new Promise((resolve) => setTimeout(resolve, 10));
   }
+
+  dispatch({
+    type: GET_ARTICLE,
+    payload: article,
+  });
+
+  dispatch({
+    type: SET_ERROR,
+    payload: {
+      error: false,
+      errorMessage: "",
+    },
+  });
 };

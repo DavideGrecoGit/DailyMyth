@@ -3,11 +3,13 @@ import { Button, View, Text, Alert } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 import Navbar from "../../components/Navbar";
-import { useArticle } from "../../context/ArticleState";
+import { useArticle } from "../../context/article/ArticleProvider";
 
 const TrueFalse = ({ navigation }) => {
   const [articleState, articleDispatch] = useArticle();
   const { article, error, errorMessage } = articleState;
+
+  console.log(article);
 
   if (error) {
     Alert.alert("Ops!", `${errorMessage}\nTry Again!`, [
@@ -18,7 +20,7 @@ const TrueFalse = ({ navigation }) => {
   return (
     <View style={tw`bg-red-500 h-full`}>
       <Text style={tw`text-center p-8`}>TrueFalse</Text>
-      <Text style={tw`text-center p-8`}>{article}</Text>
+      <Text style={tw`text-center p-8`}>{article?.title}</Text>
       <Button
         title="Answer"
         onPress={() => navigation.navigate("CheckAnswer")}

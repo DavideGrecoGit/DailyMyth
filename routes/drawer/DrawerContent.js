@@ -7,7 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 
-import { GET_LATEST_ARTICLE } from "../context/ArticleReducer";
+import { GET_LATEST_ARTICLE } from "../../context/article/ArticleReducer";
 
 export function DrawerContent(props) {
   const iconSize = 24;

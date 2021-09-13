@@ -1,15 +1,14 @@
-import React, { useContext, useReducer } from "react";
-
-import { ArticleContext } from "./ArticleContex";
+import React, { useContext, useReducer, createContext } from "react";
 
 import { ArticleReducer } from "./ArticleReducer";
+import { ArticleContext } from "./ArticleContext";
 
 export const useArticle = () => {
   const { state, dispatch } = useContext(ArticleContext);
   return [state, dispatch];
 };
 
-export const ArticleState = ({ children }) => {
+export const ArticleProvider = ({ children }) => {
   //   const [article, setArticle] = useState("");
 
   const initialState = {
