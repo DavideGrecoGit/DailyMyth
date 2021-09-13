@@ -4,21 +4,25 @@ import { NavigationContainer } from "@react-navigation/native";
 
 import MenuDrawer from "./routes/drawer/MenuDrawer";
 import { ArticleProvider } from "./context/article/ArticleProvider";
+import { ThemeProvider } from "./context/theme/ThemeProvider";
 
 const App = () => {
   return (
-    <ArticleProvider>
-      <NavigationContainer>
-        <SafeAreaView
-          style={{
-            flex: 1,
-            paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-          }}
-        >
-          <MenuDrawer />
-        </SafeAreaView>
-      </NavigationContainer>
-    </ArticleProvider>
+    <ThemeProvider>
+      <ArticleProvider>
+        <NavigationContainer>
+          <SafeAreaView
+            style={{
+              flex: 1,
+              paddingTop:
+                Platform.OS === "android" ? StatusBar.currentHeight : 0,
+            }}
+          >
+            <MenuDrawer />
+          </SafeAreaView>
+        </NavigationContainer>
+      </ArticleProvider>
+    </ThemeProvider>
   );
 };
 

@@ -4,7 +4,9 @@ import tw from "tailwind-react-native-classnames";
 
 import Navbar from "../../components/Navbar";
 
-const CheckAnswer = ({ navigation }) => {
+const CheckAnswer = ({ navigation, route }) => {
+  const { answer } = route.params;
+
   return (
     <View style={tw`bg-red-500 h-full`}>
       <Text style={tw`text-center p-8`}>Checking answer</Text>
