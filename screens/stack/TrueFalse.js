@@ -1,6 +1,12 @@
-import React from "react";
-import { View, Text, Alert, FlatList } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import React, { useEffect } from "react";
+import {
+  View,
+  Text,
+  Alert,
+  BackHandler,
+  FlatList,
+  TouchableOpacity,
+} from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 import Navbar from "../../components/Navbar";
@@ -16,6 +22,31 @@ const TrueFalse = ({ navigation }) => {
 
   const [themeState, themeDispatch] = useTheme();
   const { theme } = themeState;
+
+  useEffect(() => {
+    const backAction = () => {
+      // If this screen is not focused, don't do anything
+      if (!navigation.isFocused()) {
+        return false;
+      }
+
+      Alert.alert("Hold on!", "Are you sure you want to exit DailyMyth?", [
+        {
+          text: "Don't leave",
+          style: "cancel",
+
+          onPress: () => null,
+        },
+        { text: "Exit", onPress: () => BackHandler.exitApp() },
+      ]);
+      return true;
+    };
+
+    BackHandler.addEventListener("hardwareBackPress", backAction);
+
+    return () =>
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+  }, []);
 
   if (error) {
     Alert.alert("Ops!", `${errorMessage}\nTry Again!`, [

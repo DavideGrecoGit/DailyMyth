@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, View, Text, TouchableOpacity } from "react-native";
+import React, { useEffect } from "react";
+import { BackHandler, Alert, View, Text, TouchableOpacity } from "react-native";
 import tw from "tailwind-react-native-classnames";
 
 import { useArticle } from "../../context/article/ArticleProvider";
@@ -13,6 +13,31 @@ const CheckAnswer = ({ navigation, route }) => {
 
   const [themeState, themeDispatch] = useTheme();
   const { theme } = themeState;
+
+  useEffect(() => {
+    const backAction = () => {
+      // If this screen is not focused, don't do anything
+      if (!navigation.isFocused()) {
+        return false;
+      }
+
+      Alert.alert("Hold on!", "Are you sure you want to exit DailyMyth?", [
+        {
+          text: "Don't leave",
+          style: "cancel",
+
+          onPress: () => null,
+        },
+        { text: "Exit", onPress: () => BackHandler.exitApp() },
+      ]);
+      return true;
+    };
+
+    BackHandler.addEventListener("hardwareBackPress", backAction);
+
+    return () =>
+      BackHandler.removeEventListener("hardwareBackPress", backAction);
+  }, []);
 
   return (
     <View style={tw`${theme.bg} justify-center items-center h-full px-8 pb-40`}>

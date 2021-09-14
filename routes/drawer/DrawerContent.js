@@ -28,8 +28,16 @@ export function DrawerContent(props) {
           label="Today"
           labelStyle={labelStyle}
           onPress={() =>
-            props.navigation.navigate("HomeStack", {
-              action: GET_LATEST_ARTICLE,
+            props.navigation.reset({
+              index: 0,
+              routes: [
+                {
+                  name: "HomeStack",
+                  params: {
+                    action: GET_LATEST_ARTICLE,
+                  },
+                },
+              ],
             })
           }
         />

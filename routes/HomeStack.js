@@ -1,3 +1,6 @@
+// TO DO:
+// if TrueFalse already answered, go to the article
+
 import React, { useEffect } from "react";
 import { View, ActivityIndicator } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -60,6 +63,10 @@ const HomeStack = ({ navigation, route }) => {
       </View>
     );
   }
+
+  // if (TRUE FALSE ALREAY ANSWERED ) {
+  //   return <Article navigation={navigation} />;
+  // }
 
   return (
     <Stack.Navigator
