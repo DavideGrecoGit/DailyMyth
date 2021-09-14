@@ -23,7 +23,7 @@ const TrueFalse = ({ navigation }) => {
     ]);
   }
 
-  const iconSize = 48;
+  const iconSize = 42;
 
   return (
     <View>

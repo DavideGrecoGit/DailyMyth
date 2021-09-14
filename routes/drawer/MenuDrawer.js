@@ -3,7 +3,6 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { View, ActivityIndicator, Text } from "react-native";
 
 import { DrawerContent } from "./DrawerContent";
-import { GET_LATEST_ARTICLE } from "../../context/article/ArticleReducer";
 
 import HomeStack from "../HomeStack";
 import Settings from "../../screens/drawer/Settings";
@@ -23,6 +22,8 @@ const Drawer = createDrawerNavigator();
 
 const MenuDrawer = () => {
   const [themeState, themeDispatch] = useTheme();
+  const { theme } = themeState;
+
   const [articleState, articleDispatch] = useArticle();
 
   const [loading, setLoading] = useState(true);

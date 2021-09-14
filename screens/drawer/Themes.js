@@ -36,7 +36,7 @@ const Themes = ({ navigation }) => {
   return (
     <View style={tw`${theme.bg} h-full`}>
       <BtnBack navigation={navigation} />
-      <Text style={tw`text-${theme.secondary} text-lg text-center p-8`}>
+      <Text style={tw`text-${theme.secondary} text-lg text-center p-6`}>
         THEMES
       </Text>
       <FlatList
