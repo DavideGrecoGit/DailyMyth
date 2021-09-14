@@ -18,9 +18,14 @@ const Navbar = ({ navigation }) => {
       style={tw` absolute w-full z-10 bottom-0 ${theme.bg} border-t-2 border-${theme.inverted} py-2 flex-row items-center px-4 w-full`}
     >
       <View style={tw`flex-1 justify-start`}>
-        <TouchableOpacity onPress={() => navigation.toggleDrawer()}>
-          <AntDesign name="menu-fold" size={24} color={theme.inverted} />
-        </TouchableOpacity>
+        <View style={tw`items-start`}>
+          <TouchableOpacity
+            style={tw`p-2`}
+            onPress={() => navigation.toggleDrawer()}
+          >
+            <AntDesign name="menu-fold" size={24} color={theme.inverted} />
+          </TouchableOpacity>
+        </View>
       </View>
 
       <View style={tw`flex-1 flex-row justify-center`}>
@@ -46,13 +51,13 @@ const Navbar = ({ navigation }) => {
 
       <View style={tw`flex-1 flex-row justify-end`}>
         <TouchableOpacity
-          style={tw`px-2`}
+          style={tw`p-2`}
           onPress={() => ToastAndroid.show("TO DO: Love ", ToastAndroid.SHORT)}
         >
           <AntDesign name="hearto" size={iconSize} color="red" />
         </TouchableOpacity>
         <TouchableOpacity
-          style={tw`px-2`}
+          style={tw`p-2`}
           onPress={() => ToastAndroid.show("TO DO: Share ", ToastAndroid.SHORT)}
         >
           <AntDesign name="sharealt" size={iconSize} color={theme.inverted} />
