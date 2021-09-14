@@ -2,9 +2,9 @@ export const light = {
   primary: "white",
   secondary: "yellow-500",
   inverted: "black",
+
   bg: "bg-white",
   textColor: "text-black",
-  darkTones: true,
 };
 
 export const dark = {
@@ -14,5 +14,4 @@ export const dark = {
 
   bg: "bg-gray-800",
   textColor: "text-white",
-  darkTones: false,
 };

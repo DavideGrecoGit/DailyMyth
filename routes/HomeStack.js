@@ -16,7 +16,6 @@ import {
   GET_ARTICLE,
   GET_LATEST_ARTICLE,
 } from "../context/article/ArticleReducer";
-import Navbar from "../components/Navbar";
 
 const Stack = createStackNavigator();
 
@@ -63,17 +62,14 @@ const HomeStack = ({ navigation, route }) => {
   }
 
   return (
-    <>
-      <Stack.Navigator
-        initialRouteName="TrueFalse"
-        // screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="TrueFalse" component={TrueFalse} />
-        <Stack.Screen name="CheckAnswer" component={CheckAnswer} />
-        <Stack.Screen name="Article" component={Article} />
-      </Stack.Navigator>
-      <Navbar navigation={navigation} />
-    </>
+    <Stack.Navigator
+      initialRouteName="TrueFalse"
+      screenOptions={{ headerShown: false }}
+    >
+      <Stack.Screen name="TrueFalse" component={TrueFalse} />
+      <Stack.Screen name="CheckAnswer" component={CheckAnswer} />
+      <Stack.Screen name="Article" component={Article} />
+    </Stack.Navigator>
   );
 };
 

@@ -38,12 +38,12 @@ export const getDefaultTheme = async (dispatch) => {
       if (themeObj?.theme && themeObj?.themeId) {
         dispatch({ type: SET_THEME, payload: themeObj.theme });
         dispatch({ type: SET_THEME_ID, payload: themeObj.themeId });
+        return;
       }
-    } else {
-      dispatch({ type: SET_THEME, payload: light });
-      dispatch({ type: SET_THEME_ID, payload: 0 });
-      setThemeLoading(dispatch, false);
     }
+    dispatch({ type: SET_THEME, payload: light });
+    dispatch({ type: SET_THEME_ID, payload: 0 });
+    setThemeLoading(dispatch, false);
   } catch (e) {
     console.log(e);
   }

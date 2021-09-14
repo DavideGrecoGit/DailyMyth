@@ -12,7 +12,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Themes = ({ navigation }) => {
   const [themeState, themeDispatch] = useTheme();
-  const { themeId } = themeState;
+  const { theme, themeId } = themeState;
 
   const themeButtons = [
     {
@@ -26,7 +26,7 @@ const Themes = ({ navigation }) => {
     {
       key: "dark",
       label: "Dark theme",
-      labelStyle: tw`bg-gray-800 text-white text-center  p-2 text-lg w-40`,
+      labelStyle: tw`bg-gray-800 border-white border-2 text-white text-center  p-2 text-lg w-40`,
       onPress: (index) => {
         setTheme(themeDispatch, dark, index);
       },
@@ -34,9 +34,11 @@ const Themes = ({ navigation }) => {
   ];
 
   return (
-    <View style={tw`bg-white h-full`}>
+    <View style={tw`${theme.bg} h-full`}>
       <BtnBack navigation={navigation} />
-      <Text style={tw`text-center p-8`}>Themes Page</Text>
+      <Text style={tw`text-${theme.secondary} text-lg text-center p-8`}>
+        THEMES
+      </Text>
       <FlatList
         contentContainerStyle={{
           flex: 1,
@@ -46,11 +48,11 @@ const Themes = ({ navigation }) => {
         renderItem={({ item, index }) => (
           <TouchableOpacity
             onPress={() => item.onPress(index)}
-            style={tw`flex-row items-center m-2`}
+            style={tw`flex-row items-center m-2 `}
           >
             <AntDesign
               name={index === themeId ? "star" : "staro"}
-              style={tw`mr-2`}
+              style={tw`mr-2 `}
               size={24}
               color="orange"
             />
