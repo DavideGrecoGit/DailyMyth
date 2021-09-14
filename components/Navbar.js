@@ -11,7 +11,7 @@ const Navbar = ({ navigation }) => {
 
   return (
     <View
-      style={tw` absolute w-full z-10 bottom-0 bg-white border-2 border-black py-2 flex-row items-center px-4 w-full`}
+      style={tw` absolute w-full z-10 bottom-0 bg-white border-t-2 border-black py-2 flex-row items-center px-4 w-full`}
     >
       <View style={tw`flex-1 justify-start`}>
         <TouchableOpacity onPress={() => navigation.toggleDrawer()}>

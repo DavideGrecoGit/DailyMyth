@@ -14,7 +14,7 @@ export const ArticleProvider = ({ children }) => {
   const initialState = {
     latestArticle: null,
     article: null,
-    loading: false,
+    articleLoading: false,
     error: false,
     errorMessage: "",
   };

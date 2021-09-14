@@ -25,7 +25,7 @@ const TrueFalse = ({ navigation }) => {
   const iconSize = 48;
 
   return (
-    <View style={tw` bg-${theme?.primary}  h-full p-8`}>
+    <View style={tw` bg-${theme?.primary} justify-center h-full px-8 pb-20`}>
       <Text style={tw`${theme?.textColor} text-center text-2xl p-2`}>
         {article?.title}
       </Text>
@@ -43,7 +43,7 @@ const TrueFalse = ({ navigation }) => {
             <Text
               style={tw`${theme?.textColor} text-center text-lg italic font-bold p-2`}
             >
-              {item}
+              #{item}
             </Text>
           )}
         />
@@ -77,8 +77,6 @@ const TrueFalse = ({ navigation }) => {
           />
         </TouchableOpacity>
       </View>
-
-      {/* <Navbar navigation={navigation} /> */}
     </View>
   );
 };

@@ -6,7 +6,7 @@ import {
 } from "./ArticleReducer";
 import axios from "axios";
 
-export const setLoading = (dispatch, status) => {
+export const setArticleLoading = (dispatch, status) => {
   dispatch({ type: SET_LOADING, payload: status });
 };
 
@@ -44,7 +44,7 @@ const handleError = (dispatch, error) => {
 };
 
 export const getRandomArticle = async (dispatch) => {
-  setLoading(dispatch, true);
+  setArticleLoading(dispatch, true);
 
   //Dummy Api call
   await axios
@@ -73,7 +73,7 @@ export const getRandomArticle = async (dispatch) => {
 };
 
 export const getLatestArticle = async (dispatch, latestArticle) => {
-  setLoading(dispatch, true);
+  setArticleLoading(dispatch, true);
 
   let article = latestArticle;
 

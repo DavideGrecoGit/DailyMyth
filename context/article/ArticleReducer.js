@@ -6,7 +6,7 @@ export const SET_ERROR = "SET_ERROR";
 export const ArticleReducer = (state, action) => {
   switch (action.type) {
     case SET_LOADING:
-      return { ...state, loading: action.payload };
+      return { ...state, articleLoading: action.payload };
     case SET_ERROR:
       return {
         ...state,

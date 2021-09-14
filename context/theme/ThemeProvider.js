@@ -11,6 +11,8 @@ export const useTheme = () => {
 export const ThemeProvider = ({ children }) => {
   const initialState = {
     theme: null,
+    themeLoading: false,
+    themeId: 0,
   };
 
   const [themeState, dispatch] = useReducer(ThemeReducer, initialState);

@@ -10,7 +10,7 @@ import { useArticle } from "../context/article/ArticleProvider";
 import {
   getLatestArticle,
   getRandomArticle,
-  setLoading,
+  setArticleLoading,
 } from "../context/article/ArticleAction";
 import {
   GET_ARTICLE,
@@ -21,19 +21,19 @@ import Navbar from "../components/Navbar";
 const Stack = createStackNavigator();
 
 const HomeStack = ({ navigation, route }) => {
-  const action = route.params.action;
+  const action = route.params?.action;
 
   const [articleState, articleDispatch] = useArticle();
-  const { latestArticle, loading } = articleState;
+  const { latestArticle, articleLoading } = articleState;
 
   const getLatestArticleHandler = async () => {
     await getLatestArticle(articleDispatch, latestArticle);
-    setLoading(articleDispatch, false);
+    setArticleLoading(articleDispatch, false);
   };
 
   const getRandomArticleHandler = async () => {
     await getRandomArticle(articleDispatch);
-    setLoading(articleDispatch, false);
+    setArticleLoading(articleDispatch, false);
   };
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const HomeStack = ({ navigation, route }) => {
     }
   }, [action]);
 
-  if (loading) {
+  if (articleLoading) {
     return (
       <View
         style={{
