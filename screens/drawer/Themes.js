@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import tw from "tailwind-react-native-classnames";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -8,7 +8,6 @@ import { useTheme } from "../../context/theme/ThemeProvider";
 import { setTheme } from "../../context/theme/ThemeAction";
 
 import { light, dark } from "../../context/theme/themes";
-import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Themes = ({ navigation }) => {
   const [themeState, themeDispatch] = useTheme();
